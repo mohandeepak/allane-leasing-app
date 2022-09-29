@@ -5,30 +5,35 @@ import java.time.LocalDate;
 
 @Entity
 public class Customer {
+
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
-    @Column(name = "customer_id")
-    private long custId;
+    @GeneratedValue(strategy= GenerationType.SEQUENCE)
+    private long customerId;
+
+
     private String firstName;
+
+
     private String lastName;
+
     private LocalDate birthDate;
 
     public Customer() {
     }
 
-    public Customer(long custId, String firstName, String lastName, LocalDate birthDate) {
-        this.custId = custId;
+    public Customer(long customerId, String firstName, String lastName, LocalDate birthDate) {
+        this.customerId = customerId;
         this.firstName = firstName;
         this.lastName = lastName;
         this.birthDate = birthDate;
     }
 
-    public long getCustId() {
-        return custId;
+    public long getCustomerId() {
+        return customerId;
     }
 
-    public void setCustId(long custId) {
-        this.custId = custId;
+    public void setCustomerId(long customerId) {
+        this.customerId = customerId;
     }
 
     public String getFirstName() {

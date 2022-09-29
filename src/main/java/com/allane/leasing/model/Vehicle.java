@@ -6,13 +6,12 @@ import javax.persistence.*;
 public class Vehicle {
 
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
-    @Column(name = "vehicle_id")
+    @GeneratedValue(strategy= GenerationType.SEQUENCE)
     private long vehicleId;
 
     private String brand;
     private String model;
-    private String vin;
+    private String vin = "";
     private int year;
     private double price;
 

@@ -2,14 +2,15 @@ package com.allane.leasing.model;
 
 import javax.persistence.*;
 
-@Table
+
 @Entity
 public class Contract {
     @Id
     @GeneratedValue(strategy= GenerationType.SEQUENCE)
-    @Column(name = "contract_id")
     private long contractId;
+
     private int contractNumber;
+
     private double monthlyRate;
 
     @ManyToOne

@@ -3,11 +3,13 @@ package com.allane.leasing.service;
 import com.allane.leasing.exception.ContractException;
 import com.allane.leasing.exception.ResourceNotFoundException;
 import com.allane.leasing.model.Contract;
+import com.allane.leasing.model.ContractOverview;
 import com.allane.leasing.model.Vehicle;
 import com.allane.leasing.repository.ContractRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -23,6 +25,7 @@ public class ContractService {
 
     public Contract findContractById(Long id){
         return contractRepo.findById(id).orElseThrow(() -> new ResourceNotFoundException("Contract with contract id"+ id + "was not found"));
+
     }
 
     public Contract saveContract(Contract contract){
@@ -59,6 +62,26 @@ public class ContractService {
                 .orElseThrow(() -> new ResourceNotFoundException("Contract with contract id"+ id + "was not found"));
 
         contractRepo.deleteById(id);
+    }
+
+
+    public List<ContractOverview> getContractOverview(){
+        List<ContractOverview> contracts = new ArrayList<>();
+        for (Contract contract: contractRepo.findAll()) {
+            ContractOverview contractOverview = new ContractOverview(
+                    contract.getContractNumber(),
+                    contract.getCustomer().getFirstName(),
+                    contract.getCustomer().getLastName(),
+                    contract.getVehicle().getBrand(),
+                    contract.getVehicle().getModel(),
+                    contract.getVehicle().getYear(),
+                    contract.getVehicle().getVin(),
+                    contract.getMonthlyRate(),
+                    contract.getVehicle().getPrice()
+            );
+            contracts.add(contractOverview);
+        }
+        return contracts;
     }
 
 

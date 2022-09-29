@@ -2,6 +2,7 @@ package com.allane.leasing.controller;
 
 
 import com.allane.leasing.model.Contract;
+import com.allane.leasing.model.ContractOverview;
 import com.allane.leasing.service.ContractService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -36,6 +37,12 @@ public class ContractController {
     public ResponseEntity<Contract> updateContract(@RequestBody Contract contract, @PathVariable("id") Long id){
         contractService.updateContract(contract, id);
         return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @GetMapping("/overview")
+    public ResponseEntity<List<ContractOverview>> getContractOverview(){
+        List<ContractOverview> contractOverview = contractService.getContractOverview();
+        return new ResponseEntity<>(contractOverview, HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")
