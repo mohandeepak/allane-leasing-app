@@ -5,7 +5,7 @@ A leasing application to administrate leasing contracts.
 
 1) Clone the repository using the following command
 
-$ git clone https://github.com/mohandeepak/allane-leasing-app.git
+   git clone https://github.com/mohandeepak/allane-leasing-app.git
 
 2) Change the following values to the following fields in application.properties file according to your database configuration
 
@@ -17,7 +17,7 @@ $ git clone https://github.com/mohandeepak/allane-leasing-app.git
 
 The overview of backend REST-API's for the 3 entities Customer, Vehicle and Contract can be found at 
 
-    http://localhost:8080/swagger-ui/index.html
+    **http://localhost:8080/swagger-ui/index.html**
 
 
 Technology Stack used:
@@ -31,13 +31,19 @@ Technology Stack used:
 
 Design Decisions:
 1) Should contact Overview be a part of Contract Model class?
+
    It makes sense to have a separate POJO class for getting the overview of available contracts.
-    **Reason 1**: In accordance with "Single Responsibility Principle" of a class.
-    **Reason 2**: Makes it easier to pass an entire model to frontend layer for display.
+    
+    **Reason 1: In accordance with "Single Responsibility Principle" of a class.**
+    
+    **Reason 2: Makes it easier to pass an entire model to frontend layer for display.**
     
 2) Many-to-One and One-to-One mappings for contract 
+    
     This is done as a part of contract class for better readability
+    
     -> many contracts can belong to one customer (many to one mapping)
+    
     -> one contract can be mapped to only one vehicle  (one to one mapping)
     
 **Edgecases**:
