@@ -11,7 +11,6 @@ import java.util.List;
 @Service
 public class VehicleService {
 
-
     @Autowired
     private VehicleRepo vehicleRepo;
 
@@ -28,7 +27,7 @@ public class VehicleService {
         return vehicleRepo.save(vehicle);
     }
 
-    public void updateVehicle(Vehicle vehicle, Long id){
+    public Vehicle updateVehicle(Vehicle vehicle, Long id){
         vehicleRepo.findById(id).ifPresent(updatedVehicle -> {
             updatedVehicle.setBrand(vehicle.getBrand());
             updatedVehicle.setModel(vehicle.getModel());
@@ -37,6 +36,7 @@ public class VehicleService {
             updatedVehicle.setYear(vehicle.getYear());
             vehicleRepo.save(updatedVehicle);
         });
+        return vehicle;
     }
 
     public void deleteVehicleById(Long id){

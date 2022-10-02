@@ -35,8 +35,7 @@ public class ContractController {
 
     @PutMapping("/{id}")
     public ResponseEntity<Contract> updateContract(@RequestBody Contract contract, @PathVariable("id") Long id){
-        contractService.updateContract(contract, id);
-        return new ResponseEntity<>(HttpStatus.OK);
+        return new ResponseEntity<>( contractService.updateContract(contract, id),HttpStatus.OK);
     }
 
     @GetMapping("/overview")

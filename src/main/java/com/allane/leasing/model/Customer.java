@@ -1,5 +1,10 @@
 package com.allane.leasing.model;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
+import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 
@@ -10,12 +15,12 @@ public class Customer {
     @GeneratedValue(strategy= GenerationType.SEQUENCE)
     private long customerId;
 
-
     private String firstName;
-
 
     private String lastName;
 
+    @JsonSerialize(using = LocalDateSerializer.class)
+    @JsonDeserialize(using = LocalDateDeserializer.class)
     private LocalDate birthDate;
 
     public Customer() {

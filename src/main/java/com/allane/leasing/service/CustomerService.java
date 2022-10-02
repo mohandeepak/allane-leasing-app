@@ -26,13 +26,15 @@ public class CustomerService {
         return customerRepo.save(customer);
     }
 
-    public void updateCustomer(Customer customer, Long id){
+    public Customer updateCustomer(Customer customer, Long id){
             customerRepo.findById(id).ifPresent(updatedCustomer -> {
                 updatedCustomer.setFirstName(customer.getFirstName());
                 updatedCustomer.setLastName(customer.getLastName());
                 updatedCustomer.setBirthDate(customer.getBirthDate());
                 customerRepo.save(updatedCustomer);
             });
+
+        return customer;
     }
 
     public void deleteCustomerById(Long id){

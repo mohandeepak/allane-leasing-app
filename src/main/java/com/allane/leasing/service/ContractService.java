@@ -30,8 +30,7 @@ public class ContractService {
 
     public Contract saveContract(Contract contract){
         Vehicle vehicle = contract.getVehicle();
-
-        if(contractRepo.getVehicleById(vehicle.getVehicleId())==null){
+        if(contractRepo.findVehicleById(vehicle.getVehicleId())==null){
             return contractRepo.save(contract);
         }
        else{
@@ -39,21 +38,20 @@ public class ContractService {
         }
     }
 
-    public void updateContract(Contract contract, Long id){
+    public Contract updateContract(Contract contract, Long id){
         Vehicle vehicle = contract.getVehicle();
-        Contract updatedContract =null;
-        if(contractRepo.getVehicleById(vehicle.getVehicleId())==null){
+        Contract updatedContract =new Contract();
+        if(contractRepo.findVehicleById(vehicle.getVehicleId())==null){
             updatedContract.setContractNumber(contract.getContractNumber());
             updatedContract.setCustomer(contract.getCustomer());
             updatedContract.setMonthlyRate(contract.getMonthlyRate());
             updatedContract.setVehicle(contract.getVehicle());
             contractRepo.save(updatedContract);
+            return updatedContract;
         }
         else{
             throw new ContractException("The vehicle already has an existing contract");
         }
-
-
     }
 
     public void deleteContractById(Long id){
@@ -83,6 +81,5 @@ public class ContractService {
         }
         return contracts;
     }
-
 
 }

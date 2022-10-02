@@ -10,5 +10,5 @@ import org.springframework.stereotype.Repository;
 public interface ContractRepo extends JpaRepository<Contract, Long> {
 
     @Query(value = "SELECT vehicle_vehicle_id FROM Contract WHERE vehicle_vehicle_id = :vehicleId", nativeQuery = true)
-    public Long getVehicleById(@Param("vehicleId") Long vehicleId);
+    public Long findVehicleById(@Param("vehicleId") Long vehicleId);
 }
