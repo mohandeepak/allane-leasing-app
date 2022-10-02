@@ -10,14 +10,16 @@ A leasing application to administrate leasing contracts.
 2) Change the following values to the following fields in application.properties file according to your database configuration
 
     spring.datasource.url=jdbc:mysql://localhost:3306/DB_NAME
+    
     spring.datasource.username= DB_USERNAME
+    
     spring.datasource.password= DB_PASSWORD
 
 3) Build the gradle file and run the spring boot application 
 
 The overview of backend REST-API's for the 3 entities Customer, Vehicle and Contract can be found at 
 
-    **http://localhost:8080/swagger-ui/index.html**
+    http://localhost:8080/swagger-ui/index.html
 
 
 Technology Stack used:
@@ -29,7 +31,7 @@ Technology Stack used:
 * Flyway database migration to create the initial schema
 * OpenAPI specification to generate server/client.
 
-Design Decisions:
+**Design Decisions:**
 1) Should contact Overview be a part of Contract Model class?
 
    It makes sense to have a separate POJO class for getting the overview of available contracts.
@@ -56,7 +58,7 @@ but user tries to create a contract with new values for customer
 and vehicle object then by default its a violation of foreign key constraint.
 
 
-Things accomplished:
+**Overview of Task:**
 
 1) Full Back-end development of all rest apis - Done
 2) Fly way migration for intial schema - Done
