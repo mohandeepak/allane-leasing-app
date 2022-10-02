@@ -7,7 +7,11 @@ A leasing application to administrate leasing contracts.
 
    git clone https://github.com/mohandeepak/allane-leasing-app.git
 
-2) Change the following values to the following fields in application.properties file according to your database configuration
+2) Create a database using the below command using mysql CLI
+    
+    create database DB_NAME;
+
+3) Change the following values in application.properties file according to your database configuration
 
     **spring.datasource.url**=jdbc:mysql://localhost:3306/DB_NAME
     
@@ -15,7 +19,7 @@ A leasing application to administrate leasing contracts.
     
     **spring.datasource.password**= DB_PASSWORD
 
-3) Build the gradle file and run the spring boot application 
+4) Build the gradle file and run the spring boot application 
 
 The overview of backend REST-API's for the 3 entities Customer, Vehicle and Contract can be found at 
 
@@ -32,13 +36,13 @@ The overview of backend REST-API's for the 3 entities Customer, Vehicle and Cont
 * OpenAPI specification to generate server/client.
 
 **Design Decisions:**
-1) Should contact Overview be a part of Contract Model class?
+1) Should Contract Overview be a part of Contract Model class?
 
    It makes sense to have a separate POJO class for getting the overview of available contracts.
     
-    **Reason 1: In accordance with "Single Responsibility Principle" of a class.**
+    **Reason 1: It is accordance with "Single Responsibility Principle" of a class**
     
-    **Reason 2: Makes it easier to pass an entire model to frontend layer for display.**
+    **Reason 2: Makes it easier to pass an entire model to frontend layer for display**
     
 2) Many-to-One and One-to-One mappings for contract 
     
@@ -50,7 +54,7 @@ The overview of backend REST-API's for the 3 entities Customer, Vehicle and Cont
     
 **Edgecases**:
 
-1) If vehicle already has a contract assigned to it, and a customer 
+1) If vehicle already has a contract assigned to it, and a user 
 tries to create another one  then "ContractException" is thrown.
 
 2) If either vehicle or customer don't exist in their respective table
@@ -75,7 +79,7 @@ wouldn't fret much for an already existing codebase.
 
 **3) Not time consuming:** 
 I didn't have to spend time writing the entire boiler plate code as 
-IntelliJ can generate getters, setters and cosntructors in just 2 clicks.
+IntelliJ can generate getters, setters and constructors in just 2 clicks.
 
 
 **Overview of the Task:**
