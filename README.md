@@ -57,7 +57,7 @@ tries to create another one  then "ContractException" is thrown.
 but user tries to create a contract with new values for customer
 and vehicle object then by default its a violation of foreign key constraint.
 
-**Possible refactoring**
+**Possible Code refactoring**
 
 The getter,setter methods and constructors of the model classes can be replaced by appopriate
 annotation supported by lambok library like @Getter, @Setter, @AllArgsConstructor,@NoArgsConstructor, etc.
@@ -65,15 +65,16 @@ Although it is a good idea to use them as it promotes better readability by redu
 
 I chose not to for this project because of the below reasons:
 
-**1) Enormous coupling**
+**1) Enormous coupling:**
 Business Logic is forced to depend on Lombok which isn't ideal as it 
 is a good practise to keep components as independent as possible.
 
-**2) Liberty of design**
+**2) Liberty of design:**
 Since, I had the liberty to design from scratch I chose this approach,
 wouldn't fret much for an already existing codebase.
 
-3) I didn't have to spend time writing the entire boiler plate code as 
+**3) Not time consuming:** 
+I didn't have to spend time writing the entire boiler plate code as 
 IntelliJ can generate getters, setters and cosntructors in just 2 clicks.
 
 
