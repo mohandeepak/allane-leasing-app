@@ -25,6 +25,7 @@ The overview of backend REST-API's for the 3 entities Customer, Vehicle and Cont
 
     http://localhost:8080/swagger-ui/index.html
 
+All the REST API's were tested using Postman as Restclient, and works as expected. 
 
 **Technology Stack used:**
 * Java 11
@@ -34,6 +35,7 @@ The overview of backend REST-API's for the 3 entities Customer, Vehicle and Cont
 * Gradle
 * Flyway database migration to create the initial schema
 * OpenAPI specification to generate server/client.
+* Postman Rest Client
 
 **Design Decisions:**
 1) Should Contract Overview be a part of Contract Model class?
@@ -84,12 +86,12 @@ IntelliJ can generate getters, setters and constructors in just 2 clicks.
 
 **Overview of the Task:**
 
-1) Full Back-end development of all rest apis - Done
-2) Fly way migration for intial schema - Done
+1) Back-end development of all rest apis for 3 entities Customer, Vehicle and Contract - Done
+2) Flyway migration for intial schema - Done
 3) Unit tests for back end
-    a) Controller layer
-    b) Service Layer
-4) Front end Development
+    a) Controller layer - Done
+    b) Service Layer -Done (covers the edge case for save/update contract when vehicle is already existing)
+4) Front end Development - Not started
     
     
  
