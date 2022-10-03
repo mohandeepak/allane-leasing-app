@@ -89,7 +89,9 @@ IntelliJ can generate getters, setters and constructors in just 2 clicks.
 1) Back-end development of all rest apis for 3 entities Customer, Vehicle and Contract - Done
 2) Flyway migration for intial schema - Done
 3) Unit tests for back end
+    
     a) Controller layer - Done
+    
     b) Service Layer -Done (covers the edge case for save/update contract when vehicle is already existing)
 4) Front end Development - Not started
     
